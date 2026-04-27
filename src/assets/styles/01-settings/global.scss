@@ -10,19 +10,18 @@ $main-text-color: var(--main-text-color);
   --main-text-color-dark: #2b2d34;
 
   /* current */
-  --color-primary: #5cd5c4;
-  --color-primary: #414042;
-  --color-primary-d: #272628;
-  --color-primary-l: #676668;
-  --color-primary-reverse: #ff6767;
-  --color-text: #7c8082;
-  --bg-gray: #c6c7ce1a;
+  --color-primary: #006241;
+  --color-primary-d: #004d33;
+  --color-primary-l: #007a52;
+  --color-primary-reverse: #FFFFFF;
+  --color-text: #1D1D1F;
+  --bg-gray: #f5f7f9;
   --color-grey: #f5f7f9;
   --color-light-grey: #eeeeee;
   /* font-size */
   --font-sm: 0.8685714286rem;
   /* font-family: ; */
-  --font-main: "DINNextLTArabic";
+  --font-main: 'IBM Plex Sans Arabic', sans-serif;
 
   /* plugins */
   --mm-ocd-width: calc(100% - 51px);
