@@ -13,9 +13,10 @@
   <div id="mainnav" class="main-nav-container flex items-center">
       <div class="inner bg-inherit w-full">
           <div class="container">
-              <div class="flex items-stretch justify-between relative">
-                  <div class="flex items-center lg:hidden">
-                      <a class="mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4" href="#mobile-menu" aria-label="Open-menu">
+              <div class="flex items-center justify-between relative">
+                  {# Logo on the Right (RTL start) #}
+                  <div class="flex items-center">
+                      <a class="mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4 lg:hidden" href="#mobile-menu" aria-label="Open-menu">
                         <i class="sicon-menu text-primary text-2xl"></i>
                       </a>
                       <a class="navbar-brand" href="{{ store.url }}">
@@ -28,11 +29,13 @@
                       </a>
                   </div>
 
-                  <div class="hidden lg:flex flex-1 items-center">
-                    <custom-main-menu class="w-full"></custom-main-menu>
+                  {# Menu in the Center #}
+                  <div class="hidden lg:flex flex-1 justify-center items-center">
+                    <custom-main-menu></custom-main-menu>
                   </div>
 
-                  <div class="flex items-center justify-end my-2.5">
+                  {# Icons on the Left (RTL end) #}
+                  <div class="flex items-center justify-end">
                       <salla-user-menu avatar-only show-header show-trigger></salla-user-menu>
                       <salla-cart-summary class="ml-4 rtl:ml-[unset] rtl:mr-4">
                         <i slot="icon" class="header-btn__icon icon sicon-shopping-bag"></i>

@@ -1,13 +1,16 @@
 
 .store-footer {
-  @apply relative bg-darker text-white mt-8 sm:mt-16;
+  @apply relative text-white mt-16 mx-5 mb-8 rounded-large overflow-hidden;
+  background: #111111;
+  box-shadow: var(--apple-shadow);
 
   a{
     @apply transition-opacity hover:opacity-75;
   }
 
   &__inner{
-    @apply bg-dark py-8 lg:py-16 border-b border-dashed border-b-white/10;
+    @apply py-8 lg:py-16 border-b border-dashed border-b-white/10;
+    background: transparent;
   }  
 
   h3{
