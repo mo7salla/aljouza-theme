@@ -64,6 +64,12 @@
 }
 
 .s-product-card{
+    @apply rounded-apple overflow-hidden border-none shadow-apple bg-white transition-all duration-300;
+
+    &:hover {
+      @apply shadow-md -translate-y-1;
+    }
+
     &-content-sub{
       @apply justify-start gap-3;
     }
@@ -74,6 +80,7 @@
 
     &-content-title{
       word-break: break-word;
+      @apply text-apple-text font-semibold;
     }
 }
 

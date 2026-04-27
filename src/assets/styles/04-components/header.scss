@@ -63,8 +63,15 @@
 
 /* Main Nav */
 .main-nav-container {
-  @apply min-h-[68px] lg:min-h-[84px];
+  @apply min-h-[68px] lg:min-h-[84px] transition-all duration-300;
   
+  .inner {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
   // Custom background Color
   .has-bg &,
   .has-bg & .sub-menu{
@@ -100,17 +107,22 @@
   &.fixed-pinned {
     .inner {
       position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
-      width: 100%;
+      top: 20px;
+      right: 20px;
+      left: 20px;
+      width: calc(100% - 40px);
       z-index: 29;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-      transform: translate3d(0, -100%, 0);
+      box-shadow: var(--apple-shadow);
+      transform: translate3d(0, -120%, 0);
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
 
       @media (max-width: 1024px){
         transform: none;
         top: -70px;
+        left: 10px;
+        right: 10px;
+        width: calc(100% - 20px);
       }
     }
 
@@ -136,7 +148,7 @@
 
       @media (max-width: 1024px){
         transform: none;
-        top: 0;
+        top: 10px;
       }
     }
   }
