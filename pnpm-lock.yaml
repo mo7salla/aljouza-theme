@@ -37,14 +37,14 @@ importers:
         specifier: ^7.29.2
         version: 7.29.2(@babel/core@7.29.0)
       '@salla.sa/twilight':
-        specifier: ^2.14.412
-        version: 2.14.412(@jitsu/protocols@1.10.4)(@types/dlv@1.1.5)(webpack@5.103.0)
+        specifier: ^2.14.414
+        version: 2.14.414(@jitsu/protocols@1.10.4)(@types/dlv@1.1.5)(webpack@5.103.0)
       '@salla.sa/twilight-components':
-        specifier: ^2.14.412
-        version: 2.14.412(@jitsu/protocols@1.10.4)(@types/dlv@1.1.5)(webpack@5.103.0)
+        specifier: ^2.14.414
+        version: 2.14.414(@jitsu/protocols@1.10.4)(@types/dlv@1.1.5)(webpack@5.103.0)
       '@salla.sa/twilight-tailwind-theme':
-        specifier: ^2.14.412
-        version: 2.14.412
+        specifier: ^2.14.414
+        version: 2.14.414
       '@tailwindcss/forms':
         specifier: ^0.5.11
         version: 0.5.11(tailwindcss@3.4.19(yaml@2.7.0))
@@ -941,42 +941,36 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [arm]
     os: [linux]
-    libc: [glibc]
 
   '@parcel/watcher-linux-arm-musl@2.5.6':
     resolution: {integrity: sha512-Ve3gUCG57nuUUSyjBq/MAM0CzArtuIOxsBdQ+ftz6ho8n7s1i9E1Nmk/xmP323r2YL0SONs1EuwqBp2u1k5fxg==}
     engines: {node: '>= 10.0.0'}
     cpu: [arm]
     os: [linux]
-    libc: [musl]
 
   '@parcel/watcher-linux-arm64-glibc@2.5.6':
     resolution: {integrity: sha512-f2g/DT3NhGPdBmMWYoxixqYr3v/UXcmLOYy16Bx0TM20Tchduwr4EaCbmxh1321TABqPGDpS8D/ggOTaljijOA==}
     engines: {node: '>= 10.0.0'}
     cpu: [arm64]
     os: [linux]
-    libc: [glibc]
 
   '@parcel/watcher-linux-arm64-musl@2.5.6':
     resolution: {integrity: sha512-qb6naMDGlbCwdhLj6hgoVKJl2odL34z2sqkC7Z6kzir8b5W65WYDpLB6R06KabvZdgoHI/zxke4b3zR0wAbDTA==}
     engines: {node: '>= 10.0.0'}
     cpu: [arm64]
     os: [linux]
-    libc: [musl]
 
   '@parcel/watcher-linux-x64-glibc@2.5.6':
     resolution: {integrity: sha512-kbT5wvNQlx7NaGjzPFu8nVIW1rWqV780O7ZtkjuWaPUgpv2NMFpjYERVi0UYj1msZNyCzGlaCWEtzc+exjMGbQ==}
     engines: {node: '>= 10.0.0'}
     cpu: [x64]
     os: [linux]
-    libc: [glibc]
 
   '@parcel/watcher-linux-x64-musl@2.5.6':
     resolution: {integrity: sha512-1JRFeC+h7RdXwldHzTsmdtYR/Ku8SylLgTU/reMuqdVD7CtLwf0VR1FqeprZ0eHQkO0vqsbvFLXUmYm/uNKJBg==}
     engines: {node: '>= 10.0.0'}
     cpu: [x64]
     os: [linux]
-    libc: [musl]
 
   '@parcel/watcher-win32-arm64@2.5.6':
     resolution: {integrity: sha512-3ukyebjc6eGlw9yRt678DxVF7rjXatWiHvTXqphZLvo7aC5NdEgFufVwjFfY51ijYEWpXbqF5jtrK275z52D4Q==}
@@ -1000,20 +994,20 @@ packages:
     resolution: {integrity: sha512-tmmZ3lQxAe/k/+rNnXQRawJ4NjxO2hqiOLTHvWchtGZULp4RyFeh6aU4XdOYBFe2KE1oShQTv4AblOs2iOrNnQ==}
     engines: {node: '>= 10.0.0'}
 
-  '@salla.sa/applepay@2.14.412':
-    resolution: {integrity: sha512-47j4cmK28CqwlD/0hwB09mimupJIYQgno9KDX7EadJSBgqmgO3xmxlmsaHYVr8LJ0fHRs9Y4MbNO4q8nKrKSNw==}
+  '@salla.sa/applepay@2.14.414':
+    resolution: {integrity: sha512-NZF9dlUmsvX0oWMjwnpYjE6JNTIIjqaGi2o247Mq6quj7pi9lNRP6YH1wISoQOHZktX2YV1QnL86wyeP/4OG7Q==}
 
-  '@salla.sa/base@2.14.412':
-    resolution: {integrity: sha512-dDMsmN4yIzqckW/AecLvtuX2fQxoK0npj1YCWCt/ZYqV8BC08nk6EduBmZXI7gCRJwADuSbAJ+tZ2qQ/EfNlug==}
+  '@salla.sa/base@2.14.414':
+    resolution: {integrity: sha512-s9EKPMTVy2ttYJh/rIabHohe2bGQDVZ/qrl8Y4Tex0XiFZ07T10c4WHFhDAdB/KzyAld6ADDkXkWErZXehyogw==}
 
-  '@salla.sa/twilight-components@2.14.412':
-    resolution: {integrity: sha512-JKm7nWSczwlL5j0Od+tbP9xD7Ro7fhBvKO5N6I0mi8wgf9egnlPIe+/s8adDFOI0jbFZQToZgq0//e7ZOByl1Q==}
+  '@salla.sa/twilight-components@2.14.414':
+    resolution: {integrity: sha512-S889AShr4bOndM0NGQql/Uhu5HHEJXm4P2x5ttj9ReSpv+7O4gk2oOrcnlsyaSlpwaaBdw9r4oBpK1fWpaOPlA==}
 
-  '@salla.sa/twilight-tailwind-theme@2.14.412':
-    resolution: {integrity: sha512-kjLGH59pFvMLvdLKza/zCpu9I922Qk9eZpntarwmQxEQmUDF5ZYyjlAkZUArFUwheuzj/o3elV5iiR70jhJhag==}
+  '@salla.sa/twilight-tailwind-theme@2.14.414':
+    resolution: {integrity: sha512-FVa8rOMmaeCtdljiesqXw80ifoV1fo5ODfvmJWTi/RxLkV4GqGPxW2OFzYNloCiv8igR5xoE1NMBfIh+SQk+Mg==}
 
-  '@salla.sa/twilight@2.14.412':
-    resolution: {integrity: sha512-OOS5pohtNTwK2XgzJ5Pn39vkTCUXC89CycR9PWaaoB9j8C3VTgZ9/Ts151k0CT1oKsP/S/xn/3EyngfqyqoOcA==}
+  '@salla.sa/twilight@2.14.414':
+    resolution: {integrity: sha512-ejHcjwkbKQnIbdEE4vOeytCwAk9DTtGujPnroOm1KpkWwuQaKcC3SpPmegmvba3CUTl7vX1XoPLYUmw9RL04Ww==}
     peerDependencies:
       webpack: ^4 || ^5
 
@@ -1234,8 +1228,8 @@ packages:
     peerDependencies:
       postcss: ^8.1.0
 
-  axios@1.15.0:
-    resolution: {integrity: sha512-wWyJDlAatxk30ZJer+GeCWS209sA42X+N5jU2jy6oHTp7ufw8uzUTVFBX9+wTfAlhiJXGS0Bq7X6efruWjuK9Q==}
+  axios@1.15.2:
+    resolution: {integrity: sha512-wLrXxPtcrPTsNlJmKjkPnNPK2Ihe0hn0wGSaTEiHRPxwjvJwT3hKmXF4dpqxmPO9SoNb2FsYXj/xEo0gHN+D5A==}
 
   babel-loader-exclude-node-modules-except@1.2.1:
     resolution: {integrity: sha512-kp/JcdRhhYKprE9fYRquyasqtrdRKXqBj0BVGB9OYxEzdBTpD/8e6w1K1gafyHgntj7f9JxLhi4phOrnCMKD6Q==}
@@ -1878,6 +1872,10 @@ packages:
 
   hasown@2.0.2:
     resolution: {integrity: sha512-0hJU9SCPvmMzIBdZFqNPXWa6dqh7WdH0cII9y+CyS8rG3nL48Bclra9HmKhVVUHyPWNH5Y7xDwAB7bfgSjkUMQ==}
+    engines: {node: '>= 0.4'}
+
+  hasown@2.0.3:
+    resolution: {integrity: sha512-ej4AhfhfL2Q2zpMmLo7U1Uv9+PyhIZpgQLGT1F9miIGmiCJIoCgSmczFdrc97mWT4kVY72KA+WnnhJ5pghSvSg==}
     engines: {node: '>= 0.4'}
 
   icss-utils@5.1.0:
@@ -4108,24 +4106,24 @@ snapshots:
       '@parcel/watcher-win32-x64': 2.5.6
     optional: true
 
-  '@salla.sa/applepay@2.14.412':
+  '@salla.sa/applepay@2.14.414':
     dependencies:
-      axios: 1.15.0
+      axios: 1.15.2
     transitivePeerDependencies:
       - debug
 
-  '@salla.sa/base@2.14.412':
+  '@salla.sa/base@2.14.414':
     dependencies:
       '@types/applepayjs': 14.0.9
       eventemitter2: 6.4.9
       lodash: 4.18.1
       store: 2.0.12
 
-  '@salla.sa/twilight-components@2.14.412(@jitsu/protocols@1.10.4)(@types/dlv@1.1.5)(webpack@5.103.0)':
+  '@salla.sa/twilight-components@2.14.414(@jitsu/protocols@1.10.4)(@types/dlv@1.1.5)(webpack@5.103.0)':
     dependencies:
-      '@salla.sa/applepay': 2.14.412
-      '@salla.sa/twilight': 2.14.412(@jitsu/protocols@1.10.4)(@types/dlv@1.1.5)(webpack@5.103.0)
-      '@salla.sa/twilight-tailwind-theme': 2.14.412
+      '@salla.sa/applepay': 2.14.414
+      '@salla.sa/twilight': 2.14.414(@jitsu/protocols@1.10.4)(@types/dlv@1.1.5)(webpack@5.103.0)
+      '@salla.sa/twilight-tailwind-theme': 2.14.414
       '@types/node': 20.19.39
       animejs: 3.2.2
       class-variance-authority: 0.7.0
@@ -4150,13 +4148,13 @@ snapshots:
       - supports-color
       - webpack
 
-  '@salla.sa/twilight-tailwind-theme@2.14.412': {}
+  '@salla.sa/twilight-tailwind-theme@2.14.414': {}
 
-  '@salla.sa/twilight@2.14.412(@jitsu/protocols@1.10.4)(@types/dlv@1.1.5)(webpack@5.103.0)':
+  '@salla.sa/twilight@2.14.414(@jitsu/protocols@1.10.4)(@types/dlv@1.1.5)(webpack@5.103.0)':
     dependencies:
       '@jitsu/js': 1.10.4(@jitsu/protocols@1.10.4)(@types/dlv@1.1.5)
-      '@salla.sa/base': 2.14.412
-      axios: 1.15.0
+      '@salla.sa/base': 2.14.414
+      axios: 1.15.2
       infinite-scroll: 4.0.1
       jwt-decode: 4.0.0
       lang.js: 1.1.14
@@ -4395,7 +4393,7 @@ snapshots:
       postcss: 8.5.6
       postcss-value-parser: 4.2.0
 
-  axios@1.15.0:
+  axios@1.15.2:
     dependencies:
       follow-redirects: 1.16.0
       form-data: 4.0.5
@@ -4825,7 +4823,7 @@ snapshots:
       es-errors: 1.3.0
       get-intrinsic: 1.3.0
       has-tostringtag: 1.0.2
-      hasown: 2.0.2
+      hasown: 2.0.3
 
   es5-ext@0.10.64:
     dependencies:
@@ -4966,7 +4964,7 @@ snapshots:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       es-set-tostringtag: 2.1.0
-      hasown: 2.0.2
+      hasown: 2.0.3
       mime-types: 2.1.35
 
   fraction.js@4.3.7: {}
@@ -4990,7 +4988,7 @@ snapshots:
       get-proto: 1.0.1
       gopd: 1.2.0
       has-symbols: 1.1.0
-      hasown: 2.0.2
+      hasown: 2.0.3
       math-intrinsics: 1.1.0
 
   get-proto@1.0.1:
@@ -5034,6 +5032,10 @@ snapshots:
       has-symbols: 1.1.0
 
   hasown@2.0.2:
+    dependencies:
+      function-bind: 1.1.2
+
+  hasown@2.0.3:
     dependencies:
       function-bind: 1.1.2
 
