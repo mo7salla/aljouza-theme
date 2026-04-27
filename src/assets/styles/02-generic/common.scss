@@ -16,10 +16,27 @@ input[type="file"] {
 }
 
 body{
-  @apply bg-gray-50;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  font-family: var(--font-main);
+  @apply antialiased;
+
   [type='text'], [type='email'], [type='url'], [type='password'], [type='number'], [type='date'], [type='datetime-local'], [type='month'], [type='search'], [type='tel'], [type='time'], [type='week'], [multiple], textarea, select{
     @apply focus:ring-0;
   }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+p, span, div {
+  // color: var(--text-secondary); // This might be too aggressive, better apply specifically
+}
+
+.text-secondary {
+  color: var(--text-secondary);
 }
 
 .text-start{

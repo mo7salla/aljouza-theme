@@ -252,9 +252,37 @@ class NavigationMenu extends HTMLElement {
     * Render the header menu
     */
     render() {
+        const logoUrl = window.store?.logo || '';
+        const storeName = window.store?.name || '';
+        const storeUrl = window.store?.url || '/';
+
+        const desktopMenus = this.menus.map((menu) => this.getDesktopMenu(menu, true));
+        const midPoint = Math.ceil(desktopMenus.length / 2);
+        const leftMenus = desktopMenus.slice(0, midPoint).join('\n');
+        const rightMenus = desktopMenus.slice(midPoint).join('\n');
+
+        const logoHtml = `
+            <li class="hidden lg:flex items-center justify-center px-8">
+                <a class="navbar-brand !mx-0" href="${storeUrl}">
+                    <img fetchpriority="high" width="100%" height="100%" loading="eager" src="${logoUrl}" alt="${storeName} logo">
+                </a>
+            </li>
+        `;
+
         this.innerHTML =  `
         <nav id="mobile-menu" class="mobile-menu">
-            <ul class="main-menu">${this.getMenus()}</ul>
+            <ul class="main-menu lg:flex lg:items-center lg:justify-center w-full">
+                <div class="hidden lg:flex lg:items-center lg:justify-end flex-1">
+                    ${leftMenus}
+                </div>
+                ${logoHtml}
+                <div class="hidden lg:flex lg:items-center lg:justify-start flex-1">
+                    ${rightMenus}
+                </div>
+                <div class="lg:hidden">
+                    ${this.menus.map((menu) => this.getMobileMenu(menu, this.displayAllText)).join('\n')}
+                </div>
+            </ul>
             <button class="btn--close close-mobile-menu sicon-cancel lg:hidden"></button>
         </nav>
         <button class="btn--close-sm close-mobile-menu sicon-cancel hidden"></button>`;

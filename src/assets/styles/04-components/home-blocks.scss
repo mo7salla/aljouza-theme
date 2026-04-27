@@ -320,7 +320,18 @@
 
 
 .s-block {
-  @apply mt-8 sm:mt-16;
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  @media (min-width: 1024px) {
+    padding-top: 120px;
+    padding-bottom: 120px;
+  }
+
+  &.compact-section {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
 
   &--full-bg{
     + footer,

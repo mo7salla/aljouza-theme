@@ -73,22 +73,36 @@
         window.can_access_wallet = {{ user.can_access_wallet | json_encode }}
         window.enable_more_menu = "{{ theme.settings.get('enable_more_menu', true) }}"
         window.enable_add_product_toast = "{{ theme.settings.get('enable_add_product_toast', true) }}"
+        window.store = {
+            logo: "{{ store.logo|cdn(175) }}",
+            name: "{{ store.name }}",
+            url: "{{ store.url }}"
+        };
     </script>
     
     {% hook 'head:start' %}
     {% hook head %}
     {% block styles %}{% endblock %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ 'app.css' | asset }}">
     <link rel="stylesheet" href="{{ theme.font.path|cdn }}"/>
     <link rel="stylesheet" href="{{ 'fonts/sallaicons.css'|cdn }}"/>
     
     <style>
         :root {
-            --font-main: '{{theme.font.name}}';
-            --color-primary: {{ theme.color.primary }};
-            --color-primary-dark: {{ theme.color.darker(0.15) }};
-            --color-primary-light: {{ theme.color.lighter(0.15) }};
-            --color-primary-reverse: {{ theme.color.reverse_text }};
+            --font-main: 'IBM Plex Sans Arabic', sans-serif;
+            --color-primary: #006241;
+            --color-primary-dark: #004d33;
+            --color-primary-light: #007a52;
+            --color-primary-reverse: #FFFFFF;
+            --color-secondary: #D4AF37;
+            --bg-page: #FFFFFF;
+            --bg-section: #F5F5F7;
+            --text-main: #1D1D1F;
+            --text-secondary: #86868B;
+            --apple-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
         }
     </style>
     {# tracking services, custom css feature. #}

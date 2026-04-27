@@ -34,7 +34,10 @@ module.exports = {
                 'dark'         : '#1D1F1F',
                 'darker'       : '#0E0F0F',
                 'danger'       : '#AE0A0A',
-                'primary-dark' : 'var(--color-primary-dark)'
+                'primary-dark' : 'var(--color-primary-dark)',
+                'apple-gray'   : '#F5F5F7',
+                'apple-text'   : '#1D1D1F',
+                'apple-secondary-text' : '#86868B',
             },
             spacing: {
               '3.75': '15px',
@@ -50,6 +53,8 @@ module.exports = {
                 'large': '22px',
                 'big'  : '40px',
                 'tiny' : '3px',
+                'apple': '20px',
+                'apple-btn': '12px',
                 DEFAULT: '.75rem',
             },
             fontSize           : {
@@ -67,13 +72,14 @@ module.exports = {
                 '20': '5rem',
             },
             boxShadow          : {
-                'default' : '5px 10px 30px #2B2D340D;',
+                'default' : '0 4px 24px rgba(0, 0, 0, 0.04);',
                 'top'     : '0px 0px 10px #0000001A;',
-                'md'      : '5px 10px 99px #2B2D340D',
+                'md'      : '0 8px 32px rgba(0, 0, 0, 0.06)',
                 'dropdown'      : '0 4px 8px rgba(161, 121, 121, 0.07)',
                 'light'   : '0px 4px 15px rgba(1, 1, 1, 0.06)',
                 'huge'    : '0px 3px 6px #00000029',
                 'progress': '0 5px 15px rgba(92, 213, 196, 0.4)',
+                'apple'   : '0 10px 40px rgba(0, 0, 0, 0.04)',
                 'mobile': 'rgb(0 0 0 / 9%) 0px 2px 1px, rgb(0 0 0 / 9%) 0px 4px 2px, rgb(0 0 0 / 9%) 0px 8px 4px, rgb(0 0 0 / 9%) 0px 16px 18px, rgb(0 0 0 / 9%) -15px 10px 7px, rgb(0 0 0 / 9%) -20px 10px 20px, rgb(0 0 0 / 9%) -20px 10px 20px, rgb(0 0 0 / 9%) -25px 20px 20px',
             },
             width              : {
