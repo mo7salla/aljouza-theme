@@ -5,77 +5,8 @@
 | cart.items_count | int     |                                 |
 | cart.total       | string  | Formatted total ex: "١٠٠ ر.س"   |
 #}
-{% set important_links = theme.settings.get('important_links') %}
-
-{# استخدمنا site-header ليكون الأساس #}
-<header class="site-header relative z-50">
+<header class="store-header">
   
-  {# --- الشريط العلوي (يختفي في الجوال للترتيب) --- #}
-  {% if important_links or store.scope %}
-  <div class="top-bar hidden lg:flex justify-between items-center container mx-auto py-1.5 px-4 text-xs">
-    <div class="flex items-center gap-4">
-      {% if important_links %}
-        <salla-menu source="footer" topnav></salla-menu>
-      {% endif %}
-      {% if store.scope %}
-        <button onclick="salla.event.dispatch('scopes::open', {'mode': 'default'})" class="text-gray-500 hover:text-primary transition">
-          <i class="sicon-location rtl:ml-1 ltr:mr-1"></i>{{ store.scope.name }}
-        </button>
-      {% endif %}
-    </div>
-  </div>
-  {% endif %}
-
-  {# --- القائمة الرئيسية العائمة --- #}
-  {# padding خارجي ليسمح للقائمة بالطفو #}
-  <div class="main-nav-container px-3 py-3 lg:px-6">
-    
-    {# الصندوق الزجاجي الداخلي #}
-    <div class="main-nav-inner flex items-center justify-between w-full max-w-7xl mx-auto px-4 lg:px-6 py-2">
-      
-      {# 1. الشعار (أقصى اليمين) #}
-      <div class="brand-logo flex items-center lg:w-1/4">
-        <a href="{{ store.url }}" class="block transition-opacity hover:opacity-80">
-          <img src="{{ store.logo|cdn(175) }}" alt="{{ store.name }}" class="max-h-[38px] lg:max-h-[46px] w-auto">
-        </a>
-      </div>
-
-      {# 2. القائمة الوسطى (مخفية في الجوال، وتتوسط الشاشات الكبيرة) #}
-      <div class="navigation-menu hidden lg:flex flex-1 justify-center">
-        <custom-main-menu></custom-main-menu>
-      </div>
-
-      {# 3. الأيقونات (أقصى اليسار) #}
-      <div class="header-actions flex items-center justify-end gap-3 lg:gap-4 lg:w-1/4">
-        
-        {# البحث: أيقونة فقط (مخفي في الجوال) #}
-        <div class="search-icon hidden sm:block">
-          <salla-search mode="modal" height="38"></salla-search>
-        </div>
-
-        {# الحساب: (مخفي في الجوال للتبسيط) #}
-        <div class="user-icon hidden sm:block">
-          <salla-user-menu avatar-only show-trigger></salla-user-menu>
-        </div>
-
-        {# السلة: (تظهر دائماً في الجوال والشاشات الكبيرة) #}
-        <salla-cart-summary class="cart-icon cursor-pointer">
-          <i slot="icon" class="sicon-shopping-bag text-xl lg:text-2xl text-gray-700 hover:text-primary transition-colors m-0"></i>
-        </salla-cart-summary>
-
-        {# زر القائمة الجانبية: (يظهر في الجوال فقط بجوار السلة) #}
-        <a href="#mobile-menu" class="mobile-menu-btn lg:hidden flex items-center justify-center cursor-pointer">
-          <i class="sicon-menu text-2xl text-gray-800"></i>
-        </a>
-
-        {# اللغة والعملة: (أقصى اليسار، وتظهر في الشاشات الكبيرة فقط) #}
-        {% if store.settings.is_multilingual or store.settings.currencies_enabled %}
-          <div class="localization-wrap hidden lg:block rtl:pr-3 ltr:pl-3 border-gray-200 rtl:border-r ltr:border-l">
-            <salla-localization-modal show-trigger></salla-localization-modal>
-          </div>
-        {% endif %}
-
-      </div>
-    </div>
-  </div>
+{% component 'footer.contcats' with {is_header:true}%}
 </header>
+111
