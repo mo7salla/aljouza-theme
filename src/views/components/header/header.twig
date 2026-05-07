@@ -35,6 +35,13 @@
                       <div class="header-search flex-1">
                         <salla-search inline oval height="36"></salla-search>
                       </div>
+                      {# Scopes | Branches #}
+          {% if store.scope %}
+              <button class="btn--rounded-gray"
+                      onclick="salla.event.dispatch('scopes::open', {'mode': 'default'})">
+                  <i class="sicon-location rtl:ml-1 ltr:mr-1"></i> {{ store.scope.name }}
+              </button>
+          {% endif %}
       </div>
 
       <div class="flex right">
@@ -49,20 +56,14 @@
   </div>
 
   {# Main Nav #}
-  <div id="mainnav" class="main-nav-container shadow-default bg-amber-200 flex items-center">
+  <div id="mainnav" class="main-nav-container shadow-default flex items-center">
       <div class="inner bg-inherit w-full">
-          <div class="container">
-              <div class="flex items-stretch justify-between relative">
-                  <div class="flex items-center">
+          <div class="flex items-center justify-center">
                       <a class="lg:hidden mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4" href="#mobile-menu" aria-label="Open-menu">
                         <i class="sicon-menu text-primary text-2xl"></i>
                       </a>
-                      
                       <custom-main-menu></custom-main-menu>
                   </div>
-                  
-              </div>
-          </div>
       </div>
   </div>
 </header>
