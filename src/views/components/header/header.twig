@@ -6,41 +6,36 @@
 | cart.total       | string  | Formatted total ex: "١٠٠ ر.س"   |
 #}
 {% set important_links = theme.settings.get('important_links') %}
+
 <header class="store-header">
-  
-  {# Top Nav (مخصص للروابط الإضافية، اللغات، والفروع فقط) #}
-  <div class="top-navbar">
-    <div class="container flex justify-between">
-      <div class="flex-1 flex items-center gap-2">
-          
+  {# 1. Top Nav (مخصص فقط للروابط الهامة أو الفروع) #}
+  {% if important_links or store.scope %}
+  <div class="top-navbar bg-gray-50 py-1">
+    <div class="container flex justify-between items-center text-xs">
+      <div class="flex items-center gap-4">
           {% if important_links %}
             <salla-menu source="footer" topnav></salla-menu>
           {% endif %}
 
-          <div class="header-buttons">
-              {% if store.settings.is_multilingual or store.settings.currencies_enabled %}
-                  <salla-localization-modal show-trigger></salla-localization-modal>
-              {% endif %}
-          </div>
-
           {% if store.scope %}
-              <button class="btn--rounded-gray"
+              <button class="flex items-center gap-1 text-gray-500 hover:text-primary"
                       onclick="salla.event.dispatch('scopes::open', {'mode': 'default'})">
-                  <i class="sicon-location rtl:ml-1 ltr:mr-1"></i> {{ store.scope.name }}
+                  <i class="sicon-location"></i> {{ store.scope.name }}
               </button>
           {% endif %}
       </div>
     </div>
   </div>
+  {% endif %}
 
-  {# Main Nav (توزيع العناصر: يمين - وسط - يسار) #}
-  <div id="mainnav" class="main-nav-container shadow-default bg-white flex items-center">
-      <div class="inner bg-inherit w-full">
+  {# 2. Main Nav (التوزيع الجديد: يمين - وسط - يسار) #}
+  <div id="mainnav" class="main-nav-container bg-white flex items-center overflow-visible">
+      <div class="inner w-full py-2">
           <div class="container">
               <div class="flex items-center justify-between relative w-full">
                   
-                  {# 1. اليمين: الشعار وزر القائمة في الجوال #}
-                  <div class="flex items-center lg:w-1/3">
+                  {# الجزء الأيمن: الشعار #}
+                  <div class="flex items-center lg:w-1/4">
                       <a class="lg:hidden mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4" href="#mobile-menu" aria-label="Open-menu">
                         <i class="sicon-menu text-primary text-2xl"></i>
                       </a>
@@ -54,26 +49,33 @@
                       </a>
                   </div>
 
-                  {# 2. ا القائمة الرئيسية للروابط#}
+                  {# الجزء الأوسط: الروابط تتوسط القائمة #}
                   <div class="hidden lg:flex flex-1 justify-center">
                       <custom-main-menu></custom-main-menu>
                   </div>
 
-                  {# 3. اليسار: البحث، المستخدم، والسلة #}
-                  <div class="flex items-center justify-end lg:w-1/3 gap-3 my-2.5">
+                  {# الجزء الأيسر: الأيقونات (بحث - مستخدم - سلة - لغة) #}
+                  <div class="flex items-center justify-end lg:w-1/4 gap-4">
                       
-                      {# البحث #}
-                      <div class="header-search hidden sm:block">
-                        <salla-search inline oval height="36"></salla-search>
+                      {# أيقونة البحث (فقط أيقونة بدون صندوق) #}
+                      <div class="header-search">
+                        <salla-search mode="modal" height="40"></salla-search>
                       </div>
 
-                      {# المستخدم #}
-                      <salla-user-menu avatar-only show-header show-trigger></salla-user-menu>
+                      {# أيقونة حساب المستخدم #}
+                      <salla-user-menu avatar-only show-trigger></salla-user-menu>
                       
-                      {# السلة #}
+                      {# أيقونة سلة المشتريات (بدون حدود برمجية) #}
                       <salla-cart-summary>
-                        <i slot="icon" class="header-btn__icon icon sicon-shopping-bag m-0"></i>
+                        <i slot="icon" class="header-btn__icon sicon-shopping-bag text-xl"></i>
                       </salla-cart-summary>
+
+                      {# تبديل اللغة والعملة (أصبح في أقصى اليسار) #}
+                      <div class="header-localization border-r rtl:pr-4 ltr:pl-4 border-gray-100">
+                          {% if store.settings.is_multilingual or store.settings.currencies_enabled %}
+                              <salla-localization-modal show-trigger></salla-localization-modal>
+                          {% endif %}
+                      </div>
                       
                   </div>
 
