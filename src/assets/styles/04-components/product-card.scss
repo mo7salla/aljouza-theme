@@ -1,0 +1,23 @@
+/* =========================================================
+   Custom Salla Product Card (Apple Style)
+   ========================================================= */
+
+custom-salla-product-card {
+  @apply block h-full;
+  
+  /* حركة النبض لزر المفضلة عند الضغط */
+  .pulse-anime {
+    animation: heartbeat 0.5s ease-in-out both;
+  }
+
+  @keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+    100% { transform: scale(1); }
+  }
+
+  /* تخصيص مؤشر التحميل (Progress Bar) إن وجد */
+  salla-progress-bar {
+    @apply block mt-2 mb-3;
+  }
+}
