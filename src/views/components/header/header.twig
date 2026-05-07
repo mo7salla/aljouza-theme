@@ -7,80 +7,75 @@
 #}
 {% set important_links = theme.settings.get('important_links') %}
 
-<header class="store-header">
-  {# 1. Top Nav (مخصص فقط للروابط الهامة أو الفروع) #}
+{# استخدمنا site-header ليكون الأساس #}
+<header class="site-header relative z-50">
+  
+  {# --- الشريط العلوي (يختفي في الجوال للترتيب) --- #}
   {% if important_links or store.scope %}
-  <div class="top-navbar bg-gray-50 py-1">
-    <div class="container flex justify-between items-center text-xs">
-      <div class="flex items-center gap-4">
-          {% if important_links %}
-            <salla-menu source="footer" topnav></salla-menu>
-          {% endif %}
-
-          {% if store.scope %}
-              <button class="flex items-center gap-1 text-gray-500 hover:text-primary"
-                      onclick="salla.event.dispatch('scopes::open', {'mode': 'default'})">
-                  <i class="sicon-location"></i> {{ store.scope.name }}
-              </button>
-          {% endif %}
-      </div>
+  <div class="top-bar hidden lg:flex justify-between items-center container mx-auto py-1.5 px-4 text-xs">
+    <div class="flex items-center gap-4">
+      {% if important_links %}
+        <salla-menu source="footer" topnav></salla-menu>
+      {% endif %}
+      {% if store.scope %}
+        <button onclick="salla.event.dispatch('scopes::open', {'mode': 'default'})" class="text-gray-500 hover:text-primary transition">
+          <i class="sicon-location rtl:ml-1 ltr:mr-1"></i>{{ store.scope.name }}
+        </button>
+      {% endif %}
     </div>
   </div>
   {% endif %}
 
-  {# 2. Main Nav (التوزيع الجديد: يمين - وسط - يسار) #}
-  <div id="mainnav" class="main-nav-container bg-white flex items-center overflow-visible">
-      <div class="inner w-full py-2">
-          <div class="container">
-              <div class="flex items-center justify-between relative w-full">
-                  
-                  {# الجزء الأيمن: الشعار #}
-                  <div class="flex items-center lg:w-1/4">
-                      <a class="lg:hidden mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4" href="#mobile-menu" aria-label="Open-menu">
-                        <i class="sicon-menu text-primary text-2xl"></i>
-                      </a>
-                      <a class="navbar-brand" href="{{ store.url }}">
-                          <img fetchpriority="high" width="100%" height="100%" loading="eager" src="{{ store.logo|cdn(175) }}" alt="{{ store.name }} logo">
-                          {% if is_page('index') %}
-                            <h1 class="sr-only">{{ store.name }}</h1>
-                          {% else %}
-                            <h2 class="sr-only">{{ store.name }}</h2>
-                          {% endif %}
-                      </a>
-                  </div>
-
-                  {# الجزء الأوسط: الروابط تتوسط القائمة #}
-                  <div class="hidden lg:flex flex-1 justify-center">
-                      <custom-main-menu></custom-main-menu>
-                  </div>
-
-                  {# الجزء الأيسر: الأيقونات (بحث - مستخدم - سلة - لغة) #}
-                  <div class="flex items-center justify-end lg:w-1/4 gap-4">
-                      
-                      {# أيقونة البحث (فقط أيقونة بدون صندوق) #}
-                      <div class="header-search">
-                        <salla-search mode="modal" height="40"></salla-search>
-                      </div>
-
-                      {# أيقونة حساب المستخدم #}
-                      <salla-user-menu avatar-only show-trigger></salla-user-menu>
-                      
-                      {# أيقونة سلة المشتريات (بدون حدود برمجية) #}
-                      <salla-cart-summary>
-                        <i slot="icon" class="header-btn__icon sicon-shopping-bag text-xl"></i>
-                      </salla-cart-summary>
-
-                      {# تبديل اللغة والعملة (أصبح في أقصى اليسار) #}
-                      <div class="header-localization border-r rtl:pr-4 ltr:pl-4 border-gray-100">
-                          {% if store.settings.is_multilingual or store.settings.currencies_enabled %}
-                              <salla-localization-modal show-trigger></salla-localization-modal>
-                          {% endif %}
-                      </div>
-                      
-                  </div>
-
-              </div>
-          </div>
+  {# --- القائمة الرئيسية العائمة --- #}
+  {# padding خارجي ليسمح للقائمة بالطفو #}
+  <div class="main-nav-container px-3 py-3 lg:px-6">
+    
+    {# الصندوق الزجاجي الداخلي #}
+    <div class="main-nav-inner flex items-center justify-between w-full max-w-7xl mx-auto px-4 lg:px-6 py-2">
+      
+      {# 1. الشعار (أقصى اليمين) #}
+      <div class="brand-logo flex items-center lg:w-1/4">
+        <a href="{{ store.url }}" class="block transition-opacity hover:opacity-80">
+          <img src="{{ store.logo|cdn(175) }}" alt="{{ store.name }}" class="max-h-[38px] lg:max-h-[46px] w-auto">
+        </a>
       </div>
+
+      {# 2. القائمة الوسطى (مخفية في الجوال، وتتوسط الشاشات الكبيرة) #}
+      <div class="navigation-menu hidden lg:flex flex-1 justify-center">
+        <custom-main-menu></custom-main-menu>
+      </div>
+
+      {# 3. الأيقونات (أقصى اليسار) #}
+      <div class="header-actions flex items-center justify-end gap-3 lg:gap-4 lg:w-1/4">
+        
+        {# البحث: أيقونة فقط (مخفي في الجوال) #}
+        <div class="search-icon hidden sm:block">
+          <salla-search mode="modal" height="38"></salla-search>
+        </div>
+
+        {# الحساب: (مخفي في الجوال للتبسيط) #}
+        <div class="user-icon hidden sm:block">
+          <salla-user-menu avatar-only show-trigger></salla-user-menu>
+        </div>
+
+        {# السلة: (تظهر دائماً في الجوال والشاشات الكبيرة) #}
+        <salla-cart-summary class="cart-icon cursor-pointer">
+          <i slot="icon" class="sicon-shopping-bag text-xl lg:text-2xl text-gray-700 hover:text-primary transition-colors m-0"></i>
+        </salla-cart-summary>
+
+        {# زر القائمة الجانبية: (يظهر في الجوال فقط بجوار السلة) #}
+        <a href="#mobile-menu" class="mobile-menu-btn lg:hidden flex items-center justify-center cursor-pointer">
+          <i class="sicon-menu text-2xl text-gray-800"></i>
+        </a>
+
+        {# اللغة والعملة: (أقصى اليسار، وتظهر في الشاشات الكبيرة فقط) #}
+        {% if store.settings.is_multilingual or store.settings.currencies_enabled %}
+          <div class="localization-wrap hidden lg:block rtl:pr-3 ltr:pl-3 border-gray-200 rtl:border-r ltr:border-l">
+            <salla-localization-modal show-trigger></salla-localization-modal>
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
   </div>
 </header>
