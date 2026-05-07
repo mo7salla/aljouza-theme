@@ -1,7 +1,8 @@
-
-/* Top Nav */
+/* =========================================================
+   Top Nav (الشريط العلوي)
+   ========================================================= */
 .top-navbar {
-  @apply flex py-2 min-h-[48px];
+  @apply flex py-2 min-h-[40px] transition-colors duration-300;
 
   @screen lg {
     @apply py-1.5;
@@ -19,145 +20,135 @@
     @apply text-[color:var(--topnav-text-color)];
   }
 
-  .s-search-input{
-    @apply bg-gray-200/50 hover:bg-gray-200/70 border-none;
-  }
-
-  @media (max-width: 640px) {
-    .s-search-results{
-      @apply w-screen max-w-[100vw] rtl:-left-2.5 ltr:-right-2.5; 
-    }
-  } 
-
   .topnav-is-dark & {
     @apply bg-dark text-gray-300;
 
     .btn--circle-gray,
     .btn--rounded-gray,
-    .s-search-input{
-      @apply bg-gray-100/10 hover:bg-gray-100/[0.15]
+    .s-search-input {
+      @apply bg-gray-100/10 hover:bg-gray-100/[0.15];
     }
 
-    .topnav-link-item{
+    .topnav-link-item {
       @apply border-gray-300/10;
     }
-
-    .s-search-input{
-      @apply text-white;
-    }
-  }
-
-  .search-btn{
-    @apply grow sm:grow-0 justify-start md:justify-center;
   }
 }
 
-// contacs menu items - pages menu items
-.topnav-link-item{
+.topnav-link-item {
   @apply inline-block transition duration-300 px-4 rtl:last:pl-0 ltr:last:pr-0 py-px text-sm leading-none ltr:border-r rtl:border-l border-gray-200 ltr:last:border-0 rtl:last:border-0 hover:opacity-80;
 
-  &.right-side{
-    @apply rtl:first:pr-0 ltr:first:pl-0
+  &.right-side {
+    @apply rtl:first:pr-0 ltr:first:pl-0;
   }
 }
 
-/* Main Nav */
+/* =========================================================
+   Main Nav (القائمة الرئيسية العائمة الزجاجية)
+   ========================================================= */
 .main-nav-container {
-  @apply min-h-[68px] lg:min-h-[84px];
+  /* مساحة خارجية للسماح للقائمة بالطفو */
+  @apply py-3 px-4 lg:px-6 relative z-50;
   
-  // Custom background Color
-  .has-bg &,
-  .has-bg & .sub-menu{
-    @apply bg-[color:var(--mainnav-bg)];
+  .inner {
+    /* التصميم الزجاجي، الحواف الدائرية المتوسطة، والحدود الخفية */
+    @apply w-full max-w-7xl mx-auto px-4 lg:px-6 bg-white/85 backdrop-blur-xl border border-gray-200/50 shadow-sm rounded-2xl transition-all duration-500;
   }
 
-  // Custom text color
+  // Custom background Color (يحافظ على الزجاجية حتى لو غير التاجر اللون)
+  .has-bg & .inner,
+  .has-bg & .sub-menu {
+    background-color: color-mix(in srgb, var(--mainnav-bg) 85%, transparent);
+    @apply backdrop-blur-xl border-white/20;
+  }
+
   .has-text-color & {
     @apply text-[color:var(--mainnav-text-color)];
   }
 }
 
+/* روابط القائمة */
 .menu-item {
-  @apply flex items-center px-6 py-2.5 sm:text-sm text-gray-500 transition-colors duration-300 hover:bg-gray-200/30;
+  @apply flex items-center px-4 py-2 sm:text-[14px] font-medium text-gray-600 transition-colors duration-300 rounded-full hover:bg-gray-100/60 hover:text-primary;
 
-  &.logout{
-    @apply text-red-400;
+  &.logout {
+    @apply text-red-500;
   }
 
-  &.is-active{
-    @apply text-primary bg-gray-200/20;
+  &.is-active {
+    @apply text-primary bg-primary/10;
   }
 }
 
-/* Sticky Header */
+/* =========================================================
+   Sticky Header (حالة النزول بالصفحة)
+   ========================================================= */
 .main-nav-container {
   &.animated {
     .inner {
-      transition: top 0.5s, transform 0.5s, -webkit-transform 0.5s, opacity 0.4s;
+      transition: top 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s ease, background-color 0.4s;
     }
   }
 
   &.fixed-pinned {
     .inner {
       position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
-      width: 100%;
-      z-index: 29;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-      transform: translate3d(0, -100%, 0);
+      top: 12px; /* مسافة من الأعلى لتبقى عائمة */
+      right: 16px;
+      left: 16px;
+      width: auto;
+      z-index: 50;
+      /* زيادة كثافة الزجاج والظل عند النزول */
+      @apply bg-white/95 backdrop-blur-2xl shadow-md border-gray-200/60 py-1;
+      transform: translate3d(0, -150%, 0);
 
-      @media (max-width: 1024px){
+      @media (max-width: 1024px) {
         transform: none;
-        top: -70px;
+        top: 10px;
+        right: 12px;
+        left: 12px;
       }
     }
 
-    .navbar-brand {
-      img {
-        max-height: 40px;
-      }
-
-      h4 {
-        line-height: 1;
-      }
+    .navbar-brand img {
+      max-height: 38px;
     }
 
     .main-menu > li > a {
-      padding-top: 20px;
-      padding-bottom: 20px;
+      padding-top: 12px;
+      padding-bottom: 12px;
     }
   }
 
-  &.fixed-header {
-    .inner {
-      transform: translate3d(0, 0, 0);
-
-      @media (max-width: 1024px){
-        transform: none;
-        top: 0;
-      }
+  &.fixed-header .inner {
+    transform: translate3d(0, 0, 0);
+    @media (max-width: 1024px) {
+      transform: none;
+      top: 10px;
     }
   }
 }
 
 .navbar-brand {
-  @apply items-center flex my-2 lg:my-0;
+  @apply items-center flex my-1 lg:my-0 transition-opacity hover:opacity-80;
 
   img {
-    @apply w-auto max-h-12 max-w-[100px] xs:max-w-[170px];
+    @apply w-auto max-h-[44px] max-w-[120px] xs:max-w-[160px];
   }
 }
 
-// Mainnav cart icon
-.header-btn{
+/* =========================================================
+   الأيقونات والسلة (تم إزالة الحدود وجعلها بسيطة)
+   ========================================================= */
+.header-btn {
   @apply border-none outline-none transition-opacity hover:opacity-80;
 
-  &__icon{
-    @apply text-xl w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-700;
-    &.icon{
-      @apply mr-[9px] rtl:ml-[9px] rtl:mr-[unset];
+  &__icon {
+    /* تم مسح الحدود والحجم الثابت، أصبحت أيقونة حرة وأنيقة */
+    @apply text-[22px] flex items-center justify-center text-gray-700 transition-colors hover:text-primary;
+    
+    &.icon {
+      @apply mr-[5px] rtl:ml-[5px] rtl:mr-[unset];
     }
   }
 }
@@ -165,51 +156,60 @@
 .header-buttons .sicon-sar {
   width: 0.65rem;
   display: inline-block;
-min-height: 1.4rem;
+  min-height: 1.4rem;
 }
 
 #mainnav .sicon-menu {
-  width: 1rem;
-  display: inline-block
+  width: 1.2rem;
+  display: inline-block;
 }
 
 custom-main-menu {
-  min-height: 84px
+  min-height: auto;
 }
 
 salla-cart-summary {
-  min-width: 73px;
-  min-height: 40px
+  min-width: auto;
+  min-height: auto;
 }
-salla-user-menu{
+
+salla-user-menu {
   @apply shrink-0;
 }
 
-// cart summary
-.s-cart-summary-total{
-  @apply text-black font-[600];
+/* شارة الرقم فوق السلة */
+.s-cart-summary-total {
+  @apply hidden; /* إخفاء النص لتبقى الأيقونة فقط نظيفة، يمكن تفعيلها إن أردت */
 }
 
-.s-cart-summary-count{
-  @apply -top-0.5 ltr:-left-1.5 rtl:-right-1.5 bg-red-800;
+.s-cart-summary-count {
+  @apply -top-1.5 ltr:-right-2 rtl:-left-2 bg-red-500 text-white min-w-[18px] h-[18px] flex items-center justify-center text-[10px] font-bold rounded-full ring-2 ring-white shadow-sm;
 }
 
-#nav-cart{
-  @apply flex items-center rtl:mr-4 ltr:ml-4 relative whitespace-nowrap;
+#nav-cart {
+  @apply flex items-center relative whitespace-nowrap p-2 rounded-full hover:bg-gray-100/50 transition-colors;
 
-  .icon{
-    @apply rtl:ml-2 ltr:mr-2;
-  }
-
-  span{
-    @apply absolute top-1 rtl:-right-2 ltr:-left-2;
+  span {
+    @apply absolute top-0 rtl:-left-1 ltr:-right-1;
   }
 }
 
-
-// Search
-.header-search{
-  .s-search-results{
-    @apply z-10;
+/* =========================================================
+   البحث الجانبي (أيقونة المودال) وقائمة الجوال
+   ========================================================= */
+.header-search {
+  @apply flex items-center justify-center;
+  
+  salla-search {
+    /* ضبط حجم أيقونة البحث لتتساوى مع باقي الأيقونات */
+    --search-icon-size: 22px;
   }
+}
+
+/* تخصيص القائمة الجانبية للجوال (Mobile Drawer) */
+salla-mobile-menu, 
+.mobile-menu-wrapper {
+  /* إضافة حواف دائرية للقائمة عندما تفتح في الجوال وحركة سلسة */
+  @apply rounded-l-[24px] rtl:rounded-r-[24px] rtl:rounded-l-none shadow-2xl;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
