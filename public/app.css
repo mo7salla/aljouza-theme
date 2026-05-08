@@ -25687,7 +25687,7 @@ input[type=radio].sr-only:checked ~ div.radio-images__badge {
     }
 }
 .has-bg .main-nav-container, .has-bg .main-nav-container .sub-menu {
-    background-color: var(--mainnav-bg);
+    background-color: #1b1b1c /*var(--mainnav-bg)*/;
 }
 .has-text-color .main-nav-container {
     color: var(--mainnav-text-color);

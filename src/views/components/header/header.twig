@@ -12,7 +12,6 @@
     <div class="flex justify-around items-center container">
 
       <div class="flex write">
- 
           {# Language & Currency Component #}
                       <div class="header-buttons">
                         {% if store.settings.is_multilingual or store.settings.currencies_enabled %}
@@ -20,13 +19,8 @@
                         {% endif %}
                       </div>
                       {# Search bar #}
-                     {# <div class="header-search flex-1">
-                        <salla-search inline oval height="36"></salla-search>
-                      </div> #}
                       <button onclick="salla.event.dispatch('search::open')" class="btn--circle-gray search-btn">
-                <span class="sicon-search"></span>
-                <span class="sm:hidden px-2 opacity-50">{{ trans('blocks.header.searchProducts') }}</span>
-              </button>
+                <span class="sicon-search"></span>              </button>
                       {# Scopes | Branches #}
           {% if store.scope %}
               <button class="btn--rounded-gray"
