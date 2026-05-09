@@ -25565,7 +25565,7 @@ input[type=radio].sr-only:checked ~ div.radio-images__badge {
     }
 }
 .topnav-has-bg .top-navbar {
-    background-color: var(--topnav-bg);
+    background-color: black;/* var(--topnav-bg); */
 }
 .topnav-has-gradient .top-navbar {
     background-image: linear-gradient(to right, var(--tw-gradient-stops));
@@ -25687,7 +25687,7 @@ input[type=radio].sr-only:checked ~ div.radio-images__badge {
     }
 }
 .has-bg .main-nav-container, .has-bg .main-nav-container .sub-menu {
-    background-color: var(--mainnav-bg);
+    background-color: black/* var(--mainnav-bg);*/
 }
 .has-text-color .main-nav-container {
     color: var(--mainnav-text-color);
