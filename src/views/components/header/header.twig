@@ -18,12 +18,6 @@
             <salla-localization-modal show-trigger></salla-localization-modal>
           {% endif %}
         </div>
-
-        {# Search bar #}
-        <button onclick="salla.event.dispatch('search::open')" class="btn--circle-gray search-btn">
-          <span class="sicon-search"></span>
-        </button>
-
         {# Scopes | Branches #}
         {% if store.scope %}
           <button class="btn--rounded-gray" onclick="salla.event.dispatch('scopes::open', {'mode': 'default'})">
@@ -45,10 +39,10 @@
       </div>
 
       <div class="flex left">
-        <salla-user-menu avatar-only show-header show-trigger></salla-user-menu>
-        <salla-cart-summary class="ml-4 rtl:ml-[unset] rtl:mr-4">
-          <i slot="icon" class="header-btn__icon icon sicon-shopping-bag"></i>
-        </salla-cart-summary>
+        {# Search bar #}
+        <button onclick="salla.event.dispatch('search::open')" class="btn--circle-gray search-btn">
+          <span class="sicon-search"></span>
+        </button>
       </div>
     </div>
   </div>
@@ -64,8 +58,9 @@
         <custom-main-menu></custom-main-menu>
       </div>
 
-      {# Salla Cart Summary #}
-      <div class="flex">
+      {# Salla Cart Summary and user icon #}
+      <div class="flex left">
+        <salla-user-menu avatar-only show-header show-trigger></salla-user-menu>
         <salla-cart-summary class="ml-4 rtl:ml-[unset] rtl:mr-4">
           <i slot="icon" class="header-btn__icon icon sicon-shopping-bag"></i>
         </salla-cart-summary>
