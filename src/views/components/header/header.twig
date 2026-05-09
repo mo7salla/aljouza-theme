@@ -54,10 +54,10 @@
   </div>
 
   {# Main Nav #}
-  <div id="mainnav" class="main-nav-containe flex">
-    <div class="flex inner w-full justify-between items-center container">
+  <div id="mainnav" class="main-nav-containe">
+    <div class="flex inner w-full justify-around">
       {# Main Menu #}
-      <div class="burger-menu">
+      <div class="burger-menu flex">
         <a class="lg:hidden mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4" href="#mobile-menu" aria-label="Open-menu">
           <i class="sicon-menu text-primary text-2xl"></i>
         </a>
@@ -65,7 +65,7 @@
       </div>
 
       {# Salla Cart Summary #}
-      <div class="">
+      <div class="flex">
         <salla-cart-summary class="ml-4 rtl:ml-[unset] rtl:mr-4">
           <i slot="icon" class="header-btn__icon icon sicon-shopping-bag"></i>
         </salla-cart-summary>
