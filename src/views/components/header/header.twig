@@ -8,17 +8,18 @@
 {% set important_links = theme.settings.get('important_links') %}
 
 <header class="store-header">
-  {# Top Nav #}
+
+  {# ===== الصف العلوي: اللغة/العملة | الشعار | البحث ===== #}
   <div class="top-navbar">
-    <div class="flex justify-around">
-      <div class="flex write">
-        {# Language & Currency Component #}
+    <div class="flex justify-between items-center">
+
+      {# يمين: اللغة والعملة والفروع #}
+      <div class="flex items-center gap-2">
         <div class="header-buttons">
           {% if store.settings.is_multilingual or store.settings.currencies_enabled %}
             <salla-localization-modal show-trigger></salla-localization-modal>
           {% endif %}
         </div>
-        {# Scopes | Branches #}
         {% if store.scope %}
           <button class="btn--rounded-gray" onclick="salla.event.dispatch('scopes::open', {'mode': 'default'})">
             <i class="sicon-location rtl:ml-1 ltr:mr-1"></i> {{ store.scope.name }}
@@ -26,8 +27,8 @@
         {% endif %}
       </div>
 
-      <div class="flex center">
-        {# logo #}
+      {# وسط: الشعار #}
+      <div class="flex justify-center">
         <a class="navbar-brand" href="{{ store.url }}">
           <img fetchpriority="high" width="100%" height="100%" loading="eager" src="{{ store.logo|cdn(175) }}" alt="{{ store.name }} logo">
           {% if is_page('index') %}
@@ -38,33 +39,37 @@
         </a>
       </div>
 
-      <div class="flex left">
-        {# Search bar #}
+      {# يسار: أيقونة البحث #}
+      <div class="flex items-center">
         <button onclick="salla.event.dispatch('search::open')" class="btn--circle-gray search-btn">
           <span class="sicon-search"></span>
         </button>
       </div>
+
     </div>
   </div>
 
-  {# Main Nav #}
-  <div id="mainnav" class="main-nav-containe">
-    <div class="flex inner justify-around">
-      {# Main Menu #}
-      <div class="burger-menu flex">
+  {# ===== الصف السفلي: القائمة | السلة والمستخدم ===== #}
+  <div id="mainnav" class="main-nav-container">
+    <div class="flex items-center justify-between inner">
+
+      {# يمين: القائمة الرئيسية #}
+      <div class="burger-menu flex items-center">
         <a class="lg:hidden mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4" href="#mobile-menu" aria-label="Open-menu">
           <i class="sicon-menu text-primary text-2xl"></i>
         </a>
         <custom-main-menu></custom-main-menu>
       </div>
 
-      {# Salla Cart Summary and user icon #}
-      <div class="flex left">
+      {# يسار: أيقونة السلة والمستخدم #}
+      <div class="flex items-center gap-2">
         <salla-user-menu avatar-only show-header show-trigger></salla-user-menu>
-        <salla-cart-summary class="ml-4 rtl:ml-[unset] rtl:mr-4">
+        <salla-cart-summary class="rtl:mr-2 ltr:ml-2">
           <i slot="icon" class="header-btn__icon icon sicon-shopping-bag"></i>
         </salla-cart-summary>
       </div>
+
     </div>
   </div>
+
 </header>
