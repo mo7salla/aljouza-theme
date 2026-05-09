@@ -11,7 +11,7 @@
   {# Top Nav #}
   <div class="top-navbar">
     <div class="flex justify-around">
-      <div class="write">
+      <div class="flex write">
         {# Language & Currency Component #}
         <div class="header-buttons">
           {% if store.settings.is_multilingual or store.settings.currencies_enabled %}
@@ -26,7 +26,7 @@
         {% endif %}
       </div>
 
-      <div class="center">
+      <div class="flex center">
         {# logo #}
         <a class="navbar-brand" href="{{ store.url }}">
           <img fetchpriority="high" width="100%" height="100%" loading="eager" src="{{ store.logo|cdn(175) }}" alt="{{ store.name }} logo">
@@ -38,7 +38,7 @@
         </a>
       </div>
 
-      <div class="left">
+      <div class="flex left">
         {# Search bar #}
         <button onclick="salla.event.dispatch('search::open')" class="btn--circle-gray search-btn">
           <span class="sicon-search"></span>
