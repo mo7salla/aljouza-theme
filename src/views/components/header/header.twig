@@ -56,14 +56,22 @@
   </div>
 
   {# Main Nav #}
-  <div id="mainnav" class="main-nav-container ß flex items-center">
+  <div id="mainnav" class="main-nav-containe flex ">
       <div class="inner w-full">
+       
           <div class="flex items-center justify-center">
                       <a class="lg:hidden mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4" href="#mobile-menu" aria-label="Open-menu">
                         <i class="sicon-menu text-primary text-2xl"></i>
                       </a>
                       <custom-main-menu></custom-main-menu>
                   </div>
+{#Salla Cart Summary#}
+                   <div class="flex lg:hidden">
+           <salla-cart-summary class="ml-4 rtl:ml-[unset] rtl:mr-4">
+                        <i slot="icon" class="header-btn__icon icon sicon-shopping-bag"></i>
+                      </salla-cart-summary>
+                      
+        </div>
       </div>
   </div>
 </header>
