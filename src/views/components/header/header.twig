@@ -9,8 +9,9 @@
 
 <header class="store-header">
   {# Top Nav #}
-  <div class="top-navbar bg-primary text-white w-xl m-auto">
-    <div class="container flex justify-between">
+  <div class="top-navbar pt-4">
+    <div class="container">
+      <div class="bg-primary text-white rounded-t-[2rem] flex justify-between px-4 py-2">
       {# Language & Currency and Scopes | Branches #}
       <div class="left">
         <div class="header-buttons">
@@ -44,6 +45,7 @@
         <button onclick="salla.event.dispatch('search::open')" class="btn--circle-gray search-btn">
           <span class="sicon-search"></span>
         </button>
+      </div>
       </div>
     </div>
   </div>
