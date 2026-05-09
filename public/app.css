@@ -25557,6 +25557,7 @@ input[type=radio].sr-only:checked ~ div.radio-images__badge {
     min-height: 48px;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    background-color: #1b1b1a;
 }
 @media (min-width: 1024px) {
   .top-navbar {
@@ -25687,7 +25688,7 @@ input[type=radio].sr-only:checked ~ div.radio-images__badge {
     }
 }
 .has-bg .main-nav-container, .has-bg .main-nav-container .sub-menu {
-    background-color: #1b1b1c /*var(--mainnav-bg)*/;
+    background-color: black /*var(--mainnav-bg)*/;
 }
 .has-text-color .main-nav-container {
     color: var(--mainnav-text-color);
