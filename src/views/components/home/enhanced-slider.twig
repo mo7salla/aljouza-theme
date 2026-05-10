@@ -8,26 +8,50 @@
 | component.slides               | object[] | list of slides                                                               |
 | position                       | int      | Sorting number start from zero                                               |
 #}
-<section class="s-block s-block--hero-slider s-block--full-bg wide-placeholder"> 
-    <salla-slider 
-      id="main-slider-{{ position }}"
-      auto-play
-      static-when-single
-      slider-config='{"lazy":"false"}'
-      {{ component.slides|length > 1 ? '' : 'show-controls="false"' }}
-      type="fullwidth">
-        <div slot="items">
-            {% for slide in component.slides %}
-                <div class="swiper-slide w-full min-h-[300px] lg:min-h-[528px] bg-dark relative">
-					<div style="background-image: url({{ slide.image }});" class="{{ slide.without_overlay ? '' : 'overlay-bg' }} bg-cover bg-center absolute inset-0"></div>
-                    <div class="flex-center container pb-16 sm:pb-0 home-slider__content relative h-full">
-                        <div class=" w-4/6 text-center md:w-7/12 lg:w-5/12 text-white">
-                            <h2 data-swiper-parallax="-500" class="lg:text-title-size font-bold leading-tight mb-4">{{ slide.title }}</h2>
-                            <p data-swiper-parallax="-300" class="line-clamp-2 description">{{ slide.description }}</p>
-                        </div>
-                    </div>
-                </div>
-            {% endfor %}
+<section class="s-block s-block--hero-slider container animate-on-scroll my-10"> 
+    {# Outer Card Wrapper #}
+    <div class="bg-primary/5 dark:bg-dark/5 backdrop-blur-md rounded-[24px] p-3 md:p-6 shadow-apple relative">
+
+        {# Custom Navigation Arrows (Top Left) #}
+        {% if component.slides|length > 1 %}
+        <div class="absolute top-8 rtl:left-8 ltr:left-8 z-20 flex gap-2">
+            <button onclick="document.querySelector('#main-slider-{{ position }}').slidePrev()" 
+                    class="w-11 h-11 flex items-center justify-center bg-white/20 dark:bg-black/20 backdrop-blur-lg border border-white/40 dark:border-gray-700/50 rounded-[14px] text-white hover:bg-white/40 transition-all shadow-sm"
+                    aria-label="Previous Slide">
+                <i class="sicon-keyboard_arrow_right text-xl pointer-events-none"></i>
+            </button>
+            <button onclick="document.querySelector('#main-slider-{{ position }}').slideNext()" 
+                    class="w-11 h-11 flex items-center justify-center bg-white/20 dark:bg-black/20 backdrop-blur-lg border border-white/40 dark:border-gray-700/50 rounded-[14px] text-white hover:bg-white/40 transition-all shadow-sm"
+                    aria-label="Next Slide">
+                <i class="sicon-keyboard_arrow_left text-xl pointer-events-none"></i>
+            </button>
         </div>
-    </salla-slider>
-</section> 
+        {% endif %}
+
+        {# Inner Slider #}
+        <div class="rounded-[14px] overflow-hidden shadow-inner relative">
+            <salla-slider 
+              id="main-slider-{{ position }}"
+              auto-play
+              static-when-single
+              slider-config='{"lazy":"false"}'
+              show-controls="false"
+              type="fullwidth">
+                <div slot="items">
+                    {% for slide in component.slides %}
+                        <div class="swiper-slide w-full min-h-[300px] lg:min-h-[500px] bg-dark relative">
+                            <div style="background-image: url({{ slide.image }});" class="{{ slide.without_overlay ? '' : 'overlay-bg' }} bg-cover bg-center absolute inset-0"></div>
+                            <div class="flex items-center justify-center container pb-16 sm:pb-0 home-slider__content relative h-full z-10">
+                                <div class="w-5/6 text-center md:w-8/12 lg:w-6/12 text-white mt-12 md:mt-0">
+                                    <h2 data-swiper-parallax="-500" class="text-2xl md:text-4xl lg:text-5xl font-bold leading-tight mb-4 drop-shadow-md">{{ slide.title }}</h2>
+                                    <p data-swiper-parallax="-300" class="line-clamp-2 description text-sm md:text-base drop-shadow-md">{{ slide.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </salla-slider>
+        </div>
+
+    </div>
+</section>
