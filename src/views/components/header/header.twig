@@ -7,16 +7,18 @@
 #}
 {% set important_links = theme.settings.get('important_links') %}
 
-<header class="store-header">
+<header class="store-header sticky top-0 z-50">
   {# Top Nav #}
-  <div class="top-navbar pt-4">
+  <div class="top-navbar">
     <div class="container">
-      <div class="bg-primary text-white rounded-t-[2rem] flex justify-between items-center px-4 py-2">
+      <div class="bg-primary text-white flex justify-between items-center px-4 py-2">
       {# Language & Currency and Scopes | Branches #}
       <div class="left">
         <div class="header-buttons">
           {% if store.settings.is_multilingual or store.settings.currencies_enabled %}
-            <salla-localization-modal show-trigger></salla-localization-modal>
+            <button class="btn--rounded-gray" onclick="salla.event.dispatch('localization::open')">
+              {% if store.language.code == 'ar' %}ع{% else %}E{% endif %}
+            </button>
           {% endif %}
         </div>
 
@@ -53,11 +55,11 @@
   {# Main Nav #}
   <div id="mainnav" class="main-nav-container flex items-center mb-4">
     <div class="container">
-      <div class="inner w-full bg-primary/90 dark:bg-dark/90 backdrop-blur-lg rounded-b-[2rem] shadow-lg border border-white/20 dark:border-gray-800/50 px-4 lg:px-8 text-white">
+      <div class="inner w-full bg-primary/90 dark:bg-dark/90 backdrop-blur-lg rounded-b-[2rem] shadow-sm border border-white/20 dark:border-gray-800/50 px-4 lg:px-8 text-white">
         <div class="flex items-stretch justify-between relative">
           <div class="flex items-center">
             <a class="lg:hidden mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4" href="#mobile-menu" aria-label="Open-menu">
-              <i class="sicon-menu text-white text-2xl"></i>
+              <i class="sicon-menu text-gray-900 text-2xl"></i>
             </a>
             <custom-main-menu></custom-main-menu>
           </div>

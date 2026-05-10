@@ -132,13 +132,13 @@ class ProductCard extends HTMLElement {
 
     // التصميم الزجاجي مع الحدود السحرية
     this.innerHTML = `
-      <div class="group h-full rounded-[26px] p-[1px] bg-gradient-to-br from-white/80 via-white/20 to-gray-200/50 shadow-sm hover:shadow-apple transition-all duration-500 ease-out">
+      <div class="group h-full rounded-2xl p-[1px] bg-gradient-to-br from-white/80 via-white/20 to-gray-200/50 shadow-sm hover:shadow-apple transition-all duration-500 ease-out">
         
         <!-- البطاقة الداخلية الزجاجية -->
-        <div class="bg-white/65 backdrop-blur-xl rounded-[25px] p-[5px] flex flex-col h-full relative overflow-hidden">
+        <div class="bg-white/65 backdrop-blur-xl rounded-[15px] p-[5px] flex flex-col h-full relative overflow-hidden">
           
           <!-- منطقة الصورة -->
-          <div class="relative w-full aspect-[4/3] rounded-[20px] overflow-hidden bg-gray-100">
+          <div class="relative w-full aspect-[3/4] rounded-xl overflow-hidden bg-gray-100">
             <a href="${this.product?.url}" class="block w-full h-full" aria-label="${this.escapeHTML(this.product?.image?.alt || this.product.name)}">
               <img 
                 class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -207,13 +207,7 @@ class ProductCard extends HTMLElement {
                 </salla-add-product-button>`
               : ``}
 
-              <!-- زر المشاركة السريع (لمسة إضافية لتسويق الدورات) -->
-              <button 
-                onclick="navigator.share ? navigator.share({title: '${this.escapeHTML(this.product.name)}', url: '${this.product.url}'}) : window.location.href='${this.product.url}'"
-                class="w-10 h-10 shrink-0 rounded-full bg-gray-50 hover:bg-gray-200 border border-gray-100 flex items-center justify-center text-gray-500 transition-colors tooltip"
-                aria-label="مشاركة">
-                <i class="sicon-share-alt"></i>
-              </button>
+
 
             </div>
           </div>
