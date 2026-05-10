@@ -20,13 +20,13 @@ input[type="text"]:disabled {
 }
 
 .form-input {
-  @apply w-full h-10 transition-colors duration-300 focus:ring-transparent focus:border-primary dark:focus:border-primary text-sm border-gray-200 dark:bg-gray-600 dark:border-gray-600 rounded-md;
+  @apply w-full h-12 px-4 transition-all duration-300 focus:ring-transparent focus:border-primary focus:bg-white dark:focus:border-primary text-[15px] border-gray-200/60 bg-gray-50 dark:bg-gray-800 dark:border-gray-700 rounded-[14px] shadow-sm hover:border-gray-300;
   appearance: none;
   -webkit-appearance: none;
 }
 
 textarea.form-input {
-  @apply h-24;
+  @apply h-28 py-4;
 }
 
 .has-error {

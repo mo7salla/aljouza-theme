@@ -19,7 +19,7 @@ salla-button {
 }
 
 .btn {
-  @apply transition duration-300 flex-1 inline-flex justify-center items-center px-6 pb-2.5 pt-2 text-sm font-bold rounded-md hover:opacity-80 whitespace-nowrap;
+  @apply transition duration-300 flex-1 inline-flex justify-center items-center px-6 py-3.5 text-[15px] font-bold rounded-[14px] hover:opacity-80 whitespace-nowrap;
 
   .loader {
     width: 0;
@@ -82,15 +82,15 @@ salla-button {
   }
 
   &--rounded-gray {
-    @apply inline-flex grow-0 justify-center w-full rounded-full px-3.5 py-2 items-center transition-colors bg-gray-200/50 hover:bg-gray-200/70 text-sm font-medium whitespace-nowrap;
+    @apply inline-flex grow-0 justify-center w-full rounded-[14px] px-5 py-3 items-center transition-colors bg-gray-200/50 hover:bg-gray-200/70 text-[15px] font-medium whitespace-nowrap;
   }
 
   &--circle-gray {
-    @apply inline-flex justify-center items-center rounded-full px-3 py-3 h-9 w-9 transition-colors bg-gray-200/30 hover:bg-gray-200/50 text-sm font-medium;
+    @apply inline-flex justify-center items-center rounded-xl p-3 h-10 w-10 transition-colors bg-gray-200/30 hover:bg-gray-200/50 text-sm font-medium;
   }
 
   &--icon {
-    @apply flex items-center justify-center transition bg-white text-gray-500 border-gray-200  hover:border-gray-200 hover:text-gray-600 mx-1 border rounded-full w-10 h-10 font-medium flex-shrink-0;
+    @apply flex items-center justify-center transition bg-white text-gray-500 border-gray-200 hover:border-gray-200 hover:text-gray-600 mx-1 border rounded-xl w-11 h-11 font-medium flex-shrink-0;
 
     i {
       @apply pointer-events-none;
@@ -114,7 +114,7 @@ salla-button {
   }
 
   &--collapse {
-    @apply w-full bg-gray-100 py-2.5 rtl:xs:pr-7 ltr:xs:pl-7 rtl:xs:pl-5 ltr:xs:pr-5 rounded-md flex items-center text-gray-700 justify-center text-sm;
+    @apply w-full bg-gray-100 py-3.5 rtl:xs:pr-7 ltr:xs:pl-7 rtl:xs:pl-5 ltr:xs:pr-5 rounded-[14px] flex items-center text-gray-700 justify-center text-[15px];
   }
 
   /* Disabled state */
@@ -150,12 +150,12 @@ salla-button {
   }
 
   &--rounded-full {
-    @apply rounded-full;
+    @apply rounded-2xl;
   }
 }
 
 .rounded-icon {
-  @apply w-16 h-16 flex justify-center items-center rounded-full text-2xl;
+  @apply w-16 h-16 flex justify-center items-center rounded-2xl text-2xl;
 }
 
 /*

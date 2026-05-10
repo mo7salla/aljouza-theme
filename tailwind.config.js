@@ -50,6 +50,9 @@ module.exports = {
                 'large': '22px',
                 'big'  : '40px',
                 'tiny' : '3px',
+                'xl': '12px',
+                '2xl': '16px',
+                '3xl': '24px',
                 DEFAULT: '.75rem',
             },
             fontSize           : {
@@ -67,14 +70,16 @@ module.exports = {
                 '20': '5rem',
             },
             boxShadow          : {
-                'default' : '5px 10px 30px #2B2D340D;',
-                'top'     : '0px 0px 10px #0000001A;',
+                'default' : '5px 10px 30px #2B2D340D',
+                'top'     : '0px 0px 10px #0000001A',
                 'md'      : '5px 10px 99px #2B2D340D',
-                'dropdown'      : '0 4px 8px rgba(161, 121, 121, 0.07)',
+                'dropdown': '0 4px 8px rgba(161, 121, 121, 0.07)',
                 'light'   : '0px 4px 15px rgba(1, 1, 1, 0.06)',
                 'huge'    : '0px 3px 6px #00000029',
                 'progress': '0 5px 15px rgba(92, 213, 196, 0.4)',
-                'mobile': 'rgb(0 0 0 / 9%) 0px 2px 1px, rgb(0 0 0 / 9%) 0px 4px 2px, rgb(0 0 0 / 9%) 0px 8px 4px, rgb(0 0 0 / 9%) 0px 16px 18px, rgb(0 0 0 / 9%) -15px 10px 7px, rgb(0 0 0 / 9%) -20px 10px 20px, rgb(0 0 0 / 9%) -20px 10px 20px, rgb(0 0 0 / 9%) -25px 20px 20px',
+                'mobile'  : 'rgb(0 0 0 / 9%) 0px 2px 1px, rgb(0 0 0 / 9%) 0px 4px 2px, rgb(0 0 0 / 9%) 0px 8px 4px, rgb(0 0 0 / 9%) 0px 16px 18px, rgb(0 0 0 / 9%) -15px 10px 7px, rgb(0 0 0 / 9%) -20px 10px 20px, rgb(0 0 0 / 9%) -20px 10px 20px, rgb(0 0 0 / 9%) -25px 20px 20px',
+                'glass'   : '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
+                'apple'   : '0 4px 24px 0 rgba(0, 0, 0, 0.04)',
             },
             width              : {
                 '18': '4.5rem',
@@ -113,7 +118,8 @@ module.exports = {
                 '05': '0.05',
             },
             transitionProperty : {
-                'height': 'height'
+                'height': 'height',
+                'spacing': 'margin, padding',
             },
             keyframes: {
                 slideUpFromBottom: {
@@ -124,10 +130,20 @@ module.exports = {
                     '0%': { transform: 'translateY(0%)', opacity: '1' },
                     '100%': { transform: 'translateY(100%)', opacity: '0' },
                 },
+                fadeUp: {
+                    '0%': { transform: 'translateY(30px)', opacity: '0' },
+                    '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                fadeIn: {
+                    '0%': { opacity: '0' },
+                    '100%': { opacity: '1' },
+                },
             },
             animation: {
                 slideUpFromBottom: 'slideUpFromBottom .6s linear',
                 slideDownFromBottom: 'slideDownFromBottom .6s linear',
+                'fade-up': 'fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                'fade-in': 'fadeIn 0.8s ease-out forwards',
             },
         },
     },

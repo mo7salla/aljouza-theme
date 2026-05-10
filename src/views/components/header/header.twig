@@ -16,9 +16,7 @@
       <div class="left">
         <div class="header-buttons">
           {% if store.settings.is_multilingual or store.settings.currencies_enabled %}
-            <button class="btn--rounded-gray" onclick="salla.event.dispatch('localization::open')">
-              {% if store.language.code == 'ar' %}ع{% else %}E{% endif %}
-            </button>
+            <salla-localization-modal show-trigger></salla-localization-modal>
           {% endif %}
         </div>
 
@@ -55,7 +53,7 @@
   {# Main Nav #}
   <div id="mainnav" class="main-nav-container flex items-center mb-4">
     <div class="container">
-      <div class="inner w-full bg-primary/90 dark:bg-dark/90 backdrop-blur-lg rounded-b-[2rem] shadow-sm border border-white/20 dark:border-gray-800/50 px-4 lg:px-8 text-white">
+      <div class="inner w-full bg-primary dark:bg-dark backdrop-blur-lg rounded-b-[2rem] shadow-sm border border-white/20 dark:border-gray-800/50 px-4 lg:px-8 text-white">
         <div class="flex items-stretch justify-between relative">
           <div class="flex items-center">
             <a class="lg:hidden mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4" href="#mobile-menu" aria-label="Open-menu">

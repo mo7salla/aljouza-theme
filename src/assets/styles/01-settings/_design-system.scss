@@ -1,0 +1,31 @@
+/* 
+  Design System Variables & Base Styles
+*/
+
+:root {
+  --radius-card: 16px;
+  --radius-button: 12px;
+  --radius-image: 12px;
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  @apply bg-white/70 backdrop-blur-lg border border-white/40 shadow-apple;
+}
+
+.glass-panel-dark {
+  @apply bg-dark/70 backdrop-blur-lg border border-gray-700/50 shadow-apple;
+}
+
+/* Scroll Animation Initial States */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
