@@ -1,9 +1,9 @@
 {
     "name": {
-        "ar": "رائد",
+        "ar": "متجر اقلام",
         "en": "Theme Raed"
     },
-    "repository": "https://github.com/SallaApp/theme-raed",
+    "repository": "https://github.com/mo7salla/aljouza-theme",
     "author_email": "support@salla.sa",
     "features": [
         "mega-menu",
