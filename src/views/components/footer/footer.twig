@@ -1,4 +1,4 @@
-<footer class="store-footer">
+<footer class="store-footer w-[calc(100%-2rem)] md:container mx-auto mb-8 mt-12 rounded-[30px] !bg-gray-900/95 backdrop-blur-xl border border-white/10 shadow-apple overflow-hidden [&_h3]:!text-white [&_p]:!text-gray-300 [&_a]:!text-gray-300 hover:[&_a]:!text-white [&_b]:!text-white" style="--text-color: #e5e7eb; --color-text: #e5e7eb;">
 	<div aria-label="footer" class="store-footer__inner">
 		<div class="container grid grid-col-1 lg:grid-cols-6 gap-8 lg:gap-6">
 			<div class="lg:col-span-2 rtl:lg:pl-20 ltr:lg:pr-20">
@@ -17,7 +17,7 @@
 
 		<div class="flex gap-4">
 		  {# trust badges #}
-		  <salla-trust-badges {% if theme.settings.get('footer_is_dark') %} dark {% endif %}></salla-trust-badges>
+		  <salla-trust-badges dark></salla-trust-badges>
           {# vat #}
           {% if store.settings.tax.number %}
             <div class="flex rtl:space-x-reverse space-x-2 items-end">
