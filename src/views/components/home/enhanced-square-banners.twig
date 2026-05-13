@@ -10,15 +10,59 @@
 | position                        | int      | Sorting number start from zero                                               |
 #}
 
-<section class="s-block s-block--banners container">
-    <div class="grid {{ component.banners|length <= 3 ? 'md:grid-cols-' ~ component.banners|length : 'md:grid-cols-3 two-row' }} grid-flow-row gap-3 sm:gap-8">
-        {% for index, banner in component.banners %}
-            <a  href="{{banner.url}}" aria-label="{{ (banner.title ? banner.title : 'square-banner-' ~ index) | e('html_attr') }}" class="banner-entry lazy {{banner.title ? 'has-overlay' : ''}} {{ component.banners|length <= 3 ? "h-lg-banner" : "h-banner" }}" data-bg="{{ banner.image }}">
-                <article class="banner-entry__text text-with-border">
-                    <h3 class="banner__title font-bold mb-1 leading-6">{{banner.title}}</h3>
-                    <p class="banner__description">{{banner.description}}</p>
-                </article>
-            </a>
-        {% endfor %}
+<section class="s-block s-block--banners container animate-on-scroll my-10">
+    {# Outer Glass Card #}
+    <div class="bg-white/40 dark:bg-dark/40 backdrop-blur-lg border border-gray-100 dark:border-gray-700/50 rounded-[24px] p-4 md:p-8 shadow-apple">
+        
+        <div class="grid {{ component.banners|length <= 3 ? 'md:grid-cols-' ~ component.banners|length : 'md:grid-cols-3 two-row' }} grid-flow-row gap-4 sm:gap-6">
+            {% for index, banner in component.banners %}
+                
+                {# Card specific styles: first item is Best Seller #}
+                {% set is_best_seller = loop.first %}
+                
+                <a href="{{ banner.url }}" 
+                   aria-label="{{ (banner.title ? banner.title : 'square-banner-' ~ index) | e('html_attr') }}" 
+                   class="group relative bg-white dark:bg-gray-800 rounded-[16px] p-3 shadow-sm transition-all duration-300 hover:shadow-apple hover:-translate-y-1 flex flex-col h-full {{ is_best_seller ? 'border border-primary ring-1 ring-primary/30' : 'border border-gray-100/80 dark:border-gray-700' }}">
+                    
+                    {# Image Section #}
+                    <div class="relative w-full aspect-[4/3] rounded-[12px] overflow-hidden mb-4 bg-gray-50">
+                        <img src="{{ banner.image }}" alt="{{ banner.title }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+                        
+                        {# Best Seller Badge #}
+                        {% if is_best_seller %}
+                        <div class="absolute top-3 rtl:right-3 ltr:left-3 bg-red-500 text-white text-[11px] font-bold px-2.5 py-1 rounded-md shadow-md flex items-center gap-1 z-10">
+                            <i class="sicon-star text-yellow-300"></i> الأكثر مبيعاً
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    {# Content Section #}
+                    <article class="flex-1 flex flex-col px-1">
+                        {% if banner.title %}
+                            <h3 class="text-base font-bold text-gray-900 dark:text-white mb-1 line-clamp-1">{{ banner.title }}</h3>
+                        {% endif %}
+                        
+                        {% if banner.description %}
+                            <p class="text-xs text-gray-500 dark:text-gray-400 line-clamp-2 mb-4 leading-relaxed">{{ banner.description }}</p>
+                        {% endif %}
+                        
+                        {# Decorative Icons at the bottom #}
+                        <div class="mt-auto flex items-center justify-between border-t border-gray-100 dark:border-gray-700 pt-3">
+                            <span class="text-primary text-sm font-bold flex items-center gap-1 group-hover:text-primary-d transition-colors">
+                                تسوق الآن <i class="sicon-keyboard_arrow_left rtl:rotate-0 ltr:rotate-180"></i>
+                            </span>
+                            <div class="flex items-center gap-2 text-gray-400">
+                                <button type="button" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 dark:bg-gray-700 group-hover:text-red-400 transition-colors pointer-events-none">
+                                    <i class="sicon-heart"></i>
+                                </button>
+                                <button type="button" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-50 dark:bg-gray-700 group-hover:text-primary transition-colors pointer-events-none">
+                                    <i class="sicon-share-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                </a>
+            {% endfor %}
+        </div>
     </div>
 </section>
